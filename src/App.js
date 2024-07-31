@@ -56,8 +56,8 @@ function App() {
                                 <Swiper
                                     slidesPerView="auto"
                                     navigation={{
-                                        nextEl: '.next',
-                                        prevEl: '.prev',
+                                        nextEl: '.prev',
+                                        prevEl: '.next',
                                         disabledClass: styles.hidden
                                     }}
                                     onSlideChange={handleSlideChange}
