@@ -1,0 +1,72 @@
+.card {
+  width: 605px;
+  min-height: 624px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 16px;
+  font-family: Inter, serif;
+}
+
+.wrapper {
+  margin: 30px 30px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+}
+
+.close {
+ width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.nameContainer {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 40px;
+  line-height: 48px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 700;
+
+  h2 {
+    font-weight: 700;
+    font-family: Inter, serif;
+  }
+}
+
+.img {
+ width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.name {
+
+}
+
+
+
+.descriptionContainer {
+  max-height: 304px;
+  overflow: scroll;
+  font-family: Inter, serif;
+  font-weight: 400;
+
+  /* Для скрытия полос прокрутки */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  p {
+    font-size: 16px;
+    line-height: 19.36px;
+    color: rgba(0, 0, 0, 1);
+    font-family: Inter, serif;
+  }
+}

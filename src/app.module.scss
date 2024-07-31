@@ -1,0 +1,32 @@
+.carousel {
+  max-width: 1406px;
+  margin: 0 auto;
+  //overflow: hidden;
+  position: relative;
+}
+
+.wrapper {
+  padding-left: 12px;
+  padding-right: 12px;
+  display: flex;
+  position: relative;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.disabled {
+  display: none;
+}
+
+.navContainer {
+  position: absolute;
+  top: calc(176px / 2);
+  width: 100%;
+}
+
+.navContainerWrapper {
+  position: relative;
+}

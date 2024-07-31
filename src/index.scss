@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 1);
+}
+
+button {
+  background: none; /* Убирает фоновый цвет и изображение */
+  border: none; /* Убирает границы */
+  padding: 0; /* Убирает внутренние отступы */
+  margin: 0; /* Убирает внешние отступы */
+  font: inherit; /* Устанавливает шрифт по умолчанию */
+  color: inherit; /* Устанавливает цвет текста по умолчанию */
+  text-align: center; /* Выравнивание текста по центру */
+  cursor: pointer; /* Указывает, что элемент кликабельный */
+  box-shadow: none; /* Убирает любые тени */
+  text-decoration: none; /* Убирает подчеркивание текста */
+  outline: none; /* Убирает контур при фокусировке */
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+@font-face {
+  font-family: 'RF Dewi';
+  src: local('RF Dewi'), url(fonts/RFDewi-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'RF Dewi';
+  src: local('RF Dewi'), url(fonts/RFDewi-Semibold.ttf) format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'RF Dewi';
+  src: local('RF Dewi'), url(fonts/RFDewi-Bold.ttf) format('truetype');
+  font-weight: bold;
+}
+
+
+*{
+  font-family: 'RF Dewi', sans-serif;
+  margin:0; padding:0;
+  box-sizing: border-box;
+  outline: none; border:none;
+  text-decoration: none;
+  transition: all .2s linear;
+}
+
+
+
+.swiper-slide {
+  width: auto !important;
+}
+
+
+.prev,
+.next {
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 80px;
+  background: center / 48px 48px no-repeat;
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .05);
+  right: 7px;
+}
+
+.next {
+  background-image: url('./img/button-back.svg');
+  left: 12px;
+  transform: translate(-50%, -50%);
+}
+
+.prev {
+  position: absolute;
+  right: 0;
+  background-image: url('./img/button-next.svg');
+}
