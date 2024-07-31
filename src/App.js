@@ -1,14 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import styles from './app.module.scss';
 import ContentBox from "./components/boxes/content";
-import Card from "./components/card";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
+import CelebritiesList from "./components/list/index";
 import InfoCard from "./components/info";
 import Modal from "./components/modal";
-import classNames from 'classnames';
 import useFetch from './utils/fetch';
 
 function App() {
@@ -17,7 +11,6 @@ function App() {
     const [currentCelebrity, setCurrentCelebrity] = useState(null);
     const [currentSlide, setCurrentSlide] = useState(0);
     const [totalSlides, setTotalSlides] = useState(0);
-    const swiperRef = useRef(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const openModal = useCallback(() => setIsModalOpen(true), []);
@@ -61,38 +54,13 @@ function App() {
                         </Modal>
                     )}
                     {celebrities.length > 0 && (
-                        <div className={styles.carousel}>
-                            <div className={styles.wrapper}>
-                                <Swiper
-                                    slidesPerView="auto"
-                                    navigation={{
-                                        nextEl: '.prev',
-                                        prevEl: '.next',
-                                        disabledClass: styles.hidden
-                                    }}
-                                    onSlideChange={handleSlideChange}
-                                    onSwiper={(swiper) => (swiperRef.current = swiper)}
-                                    modules={[Navigation]}
-                                >
-                                    {celebrities.map((celebrity) => (
-                                        <SwiperSlide key={celebrity.id}>
-                                            <Card
-                                                name={celebrity.name}
-                                                surname={celebrity.surname}
-                                                img={celebrity.img}
-                                                onClick={() => handleCardClick(celebrity)}
-                                            />
-                                        </SwiperSlide>
-                                    ))}
-                                </Swiper>
-                                <div className={styles.navContainer}>
-                                    <div className={styles.navContainerWrapper}>
-                                        <div className={classNames('prev', { [styles.hidden]: currentSlide === 0 })}></div>
-                                        <div className={classNames('next', { [styles.hidden]: currentSlide === totalSlides - 1 })}></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <CelebritiesList
+                            celebrities={celebrities}
+                            handleCardClick={handleCardClick}
+                            handleSlideChange={handleSlideChange}
+                            currentSlide={currentSlide}
+                            totalSlides={totalSlides}
+                        />
                     )}
                 </section>
             </ContentBox>
