@@ -28,10 +28,6 @@ function App() {
         }
     }, [data]);
 
-    const handleSlideChange = useCallback((swiper) => {
-        setCurrentSlide(swiper.activeIndex);
-    }, []);
-
     const handleCardClick = (celebrity) => {
         setCurrentCelebrity(celebrity);
         openModal();
@@ -57,7 +53,6 @@ function App() {
                         <CelebritiesList
                             celebrities={celebrities}
                             handleCardClick={handleCardClick}
-                            handleSlideChange={handleSlideChange}
                             currentSlide={currentSlide}
                             totalSlides={totalSlides}
                         />

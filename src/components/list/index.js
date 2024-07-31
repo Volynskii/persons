@@ -7,7 +7,7 @@ import Card from '../card/index';
 import styles from './celebritiesList.module.scss';
 import classNames from "classnames";
 
-const CelebritiesList = ({ celebrities, handleCardClick, handleSlideChange, currentSlide, totalSlides }) => {
+const CelebritiesList = ({ celebrities, handleCardClick, currentSlide, totalSlides }) => {
     return (
         <div className={styles.carousel}>
             <div className={styles.wrapper}>
@@ -18,7 +18,6 @@ const CelebritiesList = ({ celebrities, handleCardClick, handleSlideChange, curr
                         prevEl: '.next',
                         disabledClass: styles.hidden
                     }}
-                    onSlideChange={handleSlideChange}
                     modules={[Navigation]}
                 >
                     {celebrities.map((celebrity) => (
