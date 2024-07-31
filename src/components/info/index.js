@@ -5,10 +5,8 @@ import parse from 'html-react-parser';
 import useFetch from '../../utils/fetch';
 
 const InfoCard = ({ currentCelebrity, onClose }) => {
-    const { picId, id } = currentCelebrity || {};
-    const pictureUrl = `https://api.smotrim.ru/api/v1/pictures/${picId}/bq/redirect`;
-    const infoUrl = `https://cdnapi.smotrim.ru/api/v1/persons/${id}`;
 
+    const { infoUrl , img } = currentCelebrity || {};
     const { data: info, loading, error } = useFetch(infoUrl);
 
     if (loading) return <div className={styles.loading}>Loading...</div>;
@@ -23,7 +21,7 @@ const InfoCard = ({ currentCelebrity, onClose }) => {
                     <img src={imgClose} alt="Close"/>
                 </button>
                 <div className={styles.nameContainer}>
-                    <img className={styles.img} src={pictureUrl} alt="Celebrity" />
+                    <img className={styles.img} src={img} alt="Celebrity" />
                     <div className={styles.name}>
                         <h2>{name} {surname}</h2>
                     </div>

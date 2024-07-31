@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
-import Info from "./components/info";
+import InfoCard from "./components/info";
 import Modal from "./components/modal";
 import classNames from 'classnames';
 import useFetch from './utils/fetch';
@@ -27,7 +27,8 @@ function App() {
         if (data) {
             const superStars = data.data.content.find((it) => it.title === "Персоны").content.map((el) => ({
                 ...el,
-                img: `https://api.smotrim.ru/api/v1/pictures/${el['picId']}/bq/redirect`
+                img: `https://api.smotrim.ru/api/v1/pictures/${el['picId']}/bq/redirect`,
+                infoUrl: `https://cdnapi.smotrim.ru/api/v1/persons/${el['id']}`
             }));
             setCelebrities(superStars);
             setTotalSlides(superStars.length);
@@ -38,6 +39,11 @@ function App() {
         setCurrentSlide(swiper.activeIndex);
     }, []);
 
+    const handleCardClick = (celebrity) => {
+        setCurrentCelebrity(celebrity);
+        openModal();
+    };
+
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error.message}</div>;
 
@@ -47,7 +53,11 @@ function App() {
                 <section>
                     {isModalOpen && (
                         <Modal isOpen={isModalOpen} onClose={closeModal}>
-                            <Info currentCelebrity={currentCelebrity} onClose={closeModal} />
+                            {currentCelebrity ? (
+                                <InfoCard currentCelebrity={currentCelebrity} onClose={closeModal} />
+                            ) : (
+                                <div>Loading...</div>
+                            )}
                         </Modal>
                     )}
                     {celebrities.length > 0 && (
@@ -70,10 +80,7 @@ function App() {
                                                 name={celebrity.name}
                                                 surname={celebrity.surname}
                                                 img={celebrity.img}
-                                                onClick={() => {
-                                                    setCurrentCelebrity(celebrity);
-                                                    openModal();
-                                                }}
+                                                onClick={() => handleCardClick(celebrity)}
                                             />
                                         </SwiperSlide>
                                     ))}
