@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './card.module.scss'
 
-const Card = ({name,surname, img, pictureId, id, onClick}) => {
+const Card = ({name,surname, img, onClick}) => {
 
     return (
         <div onClick={onClick} className={styles.card}>
