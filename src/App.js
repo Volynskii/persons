@@ -43,7 +43,7 @@ function App() {
                     {isModalOpen && (
                         <Modal isOpen={isModalOpen} onClose={closeModal}>
                             {currentCelebrity ? (
-                                <InfoCard currentCelebrity={currentCelebrity} onClose={closeModal} />
+                                <InfoCard currentCelebrity={currentCelebrity} onClose={closeModal}/>
                             ) : (
                                 <div>Loading...</div>
                             )}
@@ -54,8 +54,7 @@ function App() {
                             celebrities={celebrities}
                             handleCardClick={handleCardClick}
                             currentSlide={currentSlide}
-                            totalSlides={totalSlides}
-                        />
+                            totalSlides={totalSlides}/>
                     )}
                 </section>
             </ContentBox>

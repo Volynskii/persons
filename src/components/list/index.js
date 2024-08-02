@@ -2,24 +2,16 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
 import Card from '../card/index';
 import styles from './celebritiesList.module.scss';
-import classNames from "classnames";
+import NavigationArrows from "../navigation";
+import {swiperConfig} from "../../config/swiperConfig";
 
-const CelebritiesList = ({ celebrities, handleCardClick, currentSlide, totalSlides }) => {
+const CelebritiesList = ({ celebrities, handleCardClick }) => {
     return (
         <div className={styles.carousel}>
             <div className={styles.wrapper}>
-                <Swiper
-                    slidesPerView="auto"
-                    navigation={{
-                        nextEl: '.prev',
-                        prevEl: '.next',
-                        disabledClass: styles.hidden
-                    }}
-                    modules={[Navigation]}
-                >
+                <Swiper {...swiperConfig}>
                     {celebrities.map((celebrity) => (
                         <SwiperSlide key={celebrity.id}>
                             <Card
@@ -31,12 +23,7 @@ const CelebritiesList = ({ celebrities, handleCardClick, currentSlide, totalSlid
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                <div className={styles.navContainer}>
-                    <div className={styles.navContainerWrapper}>
-                        <div className={classNames('prev', { [styles.hidden]: currentSlide === 0 })}></div>
-                        <div className={classNames('next', { [styles.hidden]: currentSlide === totalSlides - 1 })}></div>
-                    </div>
-                </div>
+               <NavigationArrows/>
             </div>
         </div>
     );

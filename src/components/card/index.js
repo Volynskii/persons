@@ -3,8 +3,6 @@ import styles from './card.module.scss'
 
 const Card = ({name,surname, img, pictureId, id, onClick}) => {
 
-
-
     return (
         <div onClick={onClick} className={styles.card}>
             <img alt={'picture'} src={img} className={styles.img}/>
